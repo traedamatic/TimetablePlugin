@@ -1,0 +1,71 @@
+# Timetable Plugin Documentation
+
+This is a CakePHP 2.2.X Plugin.
+
+The Plugin helps you to set up a timeable for any kind of event with multipli workshops and speakers
+
+**Version** 0.1
+
+**License** MIT or WTF!
+
+## Dependencies
+
+- CakePHP 2.2.X
+- MongoDB (You need to install the PHP MongoDB Driver)
+
+## Controllers
+
+- TimetableAppController
+- TimetableContoller - Dashboard, Settings
+- EventsController - Veranstaltungen/Events
+- WorkshopsController - Workshop/Kurse/Vortrag
+- SpeakersController - Referenten
+
+## Models
+
+- Event
+- Speaker
+- Workshop
+
+## OpenSource Third Party Libaries
+
+- CssCrush (as plugin included)
+- MarkItUp! (as plugin included)
+- MongoDB (as plugin included)
+- HTML Kickstart 
+- JQuery
+- Backbone.js
+
+## Setup
+
+ first clone the github repo in your Plugin-Dir with
+ 
+ git clone ... Timetable
+
+## Frontend Routes
+
+all Routes use the HTTP GET Method
+
+### Events
+
+- /events - returns all events
+- /events/<id> - returns a single event
+
+### Workshops
+
+- /workshops - returns all workshops
+- /workshops/<id> - returns a single workshop
+
+### Speaker
+
+- /speakers - returns all speakers
+- /speakers/<id> - returns a single speakers
+
+
+## Contributer
+
+- Nicolas Traeder aka traedamatic
+- Haithem Bel Haj 
+
+
+
