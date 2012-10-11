@@ -18,9 +18,7 @@ class Setting extends TimetableAppModel {
 	/**
 	 * @var array the database schema for this model
 	 */
-	public $_schema = array(
-								'theme' => array('type' => 'string', 'length' => 30)
-							);
+	public $_schema = array();
 	
 	/**
 	 *
@@ -65,6 +63,7 @@ class Setting extends TimetableAppModel {
 			}			
 			return $themes;
 		}
+		
+		return null;
 	}
 }
-		

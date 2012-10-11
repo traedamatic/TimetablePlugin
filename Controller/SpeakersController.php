@@ -8,7 +8,6 @@
  * @license MIT
  * @version 0.1
  */
-
 class SpeakersController extends TimetableAppController {
 	
 	/**
@@ -29,8 +28,7 @@ class SpeakersController extends TimetableAppController {
 	 * standard index function
 	 * only ajax right now.
 	 */	
-	public function index() {		
-		$this->layout = 'ajax';
+	public function index() {				
 		$this->set('speakers',$this->Speaker->find('all'));
 	}
 	
@@ -47,7 +45,10 @@ class SpeakersController extends TimetableAppController {
 			throw new NotFoundException('speaker could not be found');
 		}
 		
-		$this->layout = 'ajax';
+		if (!empty($this->request->params['requested'])) {			
+			return $speaker;
+		}
+		
 		$this->set(compact('speaker'));			
 	}
 	

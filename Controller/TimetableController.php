@@ -45,16 +45,7 @@ class TimetableController extends TimetableAppController {
 	 *
 	 */
 	public function index() {
-			
-		
-		$this->loadModel('Setting');
-		$setting = $this->Setting->find('first');		
-		$this->set(compact('setting'));
-		
-		$this->layout = "default";
-		
-		if($setting['Setting']['theme'] != 'default') $this->theme = $setting['Setting']['theme'];
-					
+		$this->layout = "default";				
 	}
 
 

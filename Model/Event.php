@@ -38,5 +38,6 @@ class Event extends TimetableAppModel {
 	 * manipulate cakephp date to 
 	 * 
 	 */
+	
 }
 

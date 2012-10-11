@@ -7,15 +7,14 @@
  * @package Timetable
  * @license MIT
  * @version 0.1
- */
-
+ */ 
 class SettingsController extends TimetableAppController {
 	
 	/**
 	 * @var string controller name
 	 *
 	 */
-	public $name = "Settings";
+	public $name = "Settings";	
 	
 	/**
 	 *
@@ -25,8 +24,9 @@ class SettingsController extends TimetableAppController {
 		$setting = $this->Setting->find('first');
 		
 		if(!empty($setting)) {
+			$themes = $this->Setting->getThemes();
 			$this->request->data = $setting;			
-			$this->set('themes', $this->Setting->getThemes());
+			$this->set('themes', $themes);
 		} else {			
 			$this->request->data = $this->Setting->defaultSettings;
 			$this->set('themes', $this->Setting->getThemes());

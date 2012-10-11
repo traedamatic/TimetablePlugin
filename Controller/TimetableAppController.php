@@ -48,8 +48,13 @@ class TimetableAppController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		
-		Configure::load('Timetable.timetable');
+		Configure::load('Timetable.timetable');		
 		
+		//load Settings
+		$Setting = ClassRegistry::init('Setting');
+		Configure::write('Timetable.Settings',$Setting->find('first'));
+		ClassRegistry::removeObject('Setting');
+				
 		$this->Auth->allow();
 				
 	}
@@ -60,6 +65,12 @@ class TimetableAppController extends AppController {
 	 */
 	public function beforeRender() {
 		parent::beforeRender();
+		
+		//set default theme
+		$this->theme = 'Default';
+		
+		$theme = Configure::read('Timetable.Settings.Setting.theme');		
+		if($theme != 'default' && !empty($theme) ) $this->theme = Configure::read('Timetable.Settings.Setting.theme');
 		
 		if(isset($this->request->params['manager']) && !$this->request->is('ajax'))
 			$this->layout = 'manager';

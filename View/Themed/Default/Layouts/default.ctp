@@ -6,7 +6,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		Timetable <?php echo $title_for_layout; ?>
+		Default Theme
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
@@ -40,8 +40,6 @@
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
 	
 	<?php
-		
-		echo $this->Html->script('manager');
 			
 		echo $this->fetch('script');
 		

@@ -22,11 +22,7 @@ class WorkshopsController extends TimetableAppController {
 	 * beforeFilter
 	 */
 	public function beforeFilter() {
-		parent::beforeFilter();
-		
-		$this->loadModel('Setting');
-		
-		Configure::write('Timetable.Settings',$this->Setting->find('first'));
+		parent::beforeFilter();			
 	}
 	
 	/**
@@ -34,8 +30,7 @@ class WorkshopsController extends TimetableAppController {
 	 * standard index function
 	 * only ajax right now.
 	 */	
-	public function index() {		
-		$this->layout = 'ajax';
+	public function index() {	
 		$this->set('workshops',$this->Workshop->find('all'));
 	}
 	
@@ -51,7 +46,7 @@ class WorkshopsController extends TimetableAppController {
 		if(empty($workshop)) {
 			throw new NotFoundException('workshop could not be found');
 		}
-		$this->layout = 'ajax';
+	
 		$this->set(compact('workshop'));			
 	}
 	

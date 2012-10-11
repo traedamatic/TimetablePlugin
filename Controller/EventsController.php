@@ -22,18 +22,17 @@ class EventsController extends TimetableAppController {
 	 *
 	 * index function
 	 */
-	public function index() {		
-		$this->layout = 'ajax';
-		
+	public function index() {			
 		$events = $this->Event->find('all');		
 		
 		$this->loadModel('Workshop');		
+		
 		foreach($events as $index => $event){
 			$events[$index]['Event']['workshops'] = array();
 			$events[$index]['Event']['workshops'] = array_keys($this->Workshop->find('list',array('conditions' => array('Workshop.event_id' => $event['Event']['_id']))));
 		}
 		
-		$this->set('events',$events);		
+		$this->set('events',$events);	
 	}
 	
 	/**
@@ -51,8 +50,7 @@ class EventsController extends TimetableAppController {
 		
 		$this->loadModel('Workshop');		
 		$event['Event']['workshops'] = array_keys($this->Workshop->find('list',array('conditions' => array('Workshop.event_id' => $event['Event']['_id']))));
-		
-		$this->layout = 'ajax';
+				
 		$this->set(compact('event'));		
 	}
 	
@@ -72,9 +70,7 @@ class EventsController extends TimetableAppController {
 	 * add a new event
 	 */
 	public function manager_add() {
-		if($this->request->is('post')) {
-			//debug($this->data);
-			//die;
+		if($this->request->is('post')) {		
 			if($this->Event->save($this->data)) {
 					$this->Session->setFlash(__("Veranstaltung angelegt!"),'/flash/success');
 					$this->redirect(array('action' => 'index'));
