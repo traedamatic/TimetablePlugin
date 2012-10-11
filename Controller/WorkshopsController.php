@@ -135,9 +135,13 @@ class WorkshopsController extends TimetableAppController {
 			$this->Workshop->set($this->data);
 			if($this->Workshop->save($this->data)) {
 					$this->Session->setFlash(__("Workshop angelegt!"),'/flash/success');
-					$this->redirect(array('action' => 'index'));
+					$this->redirect(array('action' => 'index'));									
 			} else {
 				$this->Session->setFlash(__("Workshop konnte nicht angelegt werden!"),'/flash/error');
+				
+				$this->set('topics',$this->_formatTopics());
+			
+				$this->_setEventsAndSpeakers();
 			}			
 		} else {		
 			

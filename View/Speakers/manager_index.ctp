@@ -1,7 +1,7 @@
 <div class="manager-view">
-	<h1>Referentenübersicht</h1>
-	<p>Hier sind alle Workshops aufgezählt:</p>
-	<?php echo $this->Html->link(__('Neu anlegen'),array('action' => 'add'),array('class' => 'button green', 'id' => 'btn-speaker-add'));?> 
+	<h1><?php echo __('Referentenübersicht'); ?></h1>
+	<p><?php echo __('Hier sind alle Workshops aufgezählt:'); ?></p>
+	<?php echo $this->Html->link(__('Neu anlegen'),array('action' => 'add'),array('class' => 'button green btn-add', 'id' => 'btn-speaker-add'));?> 
 	<table class="tight">
 		<thead>
 			<?php echo $this->Html->tableHeaders(array(__('Id'), __('Name'), __('Beschreibung'),__('Website'), __('Aktionen'))); ?>

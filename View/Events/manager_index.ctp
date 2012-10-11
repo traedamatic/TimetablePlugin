@@ -1,6 +1,7 @@
 <div class="manager-view">
-	<h1>Veranstaltungsübersicht</h1>
-	<p>Hier sind alle Veranstaltunge ausgezählt:</p>	
+	<h1><?php echo __('Veranstaltungsübersicht'); ?></h1>
+	<p><?php echo __('Hier sind alle Veranstaltunge ausgezählt:'); ?></p>
+	<?php echo $this->Html->link(__('Neu anlegen'),array('action' => 'add'),array('class' => 'button green btn-add', 'id' => 'btn-event-add'));?> 
 	<table class="tight">
 		<thead>
 			<?php echo $this->Html->tableHeaders(array(__('Id'), __('Name'), __('Beschreibung'),__('Anfang'),__('Ende'), __('Aktionen'))); ?>

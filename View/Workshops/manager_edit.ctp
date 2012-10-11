@@ -30,3 +30,20 @@
 		</div>
 	</div>
 </div>
+
+<?php
+
+	$this->Js->buffer("
+		$('select#WorkshopEventId').change(function(){
+			
+			var _eventId = $(this).find('option:selected').attr('value');
+			
+			$.get('".Router::url(array('controller' => 'events','action' => 'eventdays'))."/'+_eventId,function(data){
+				if($('#WorkshopDay').length > 0) $('#WorkshopDay').parent('div').remove();				
+				$('#WorkshopLocation').parent('div').after(data);
+				$('#afterevent').fadeIn('fast');
+			});
+				
+		});
+		");
+?>

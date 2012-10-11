@@ -4,7 +4,10 @@
 	<div class="form">
 	<?php
 		echo $this->Form->create('Setting',array('url' => array('action' => 'save'),'class' => 'vertical'));
-		echo $this->Form->input('_id',array('type' => 'hidden','default' => $this->data['Setting']['_id']));
+		
+		if(isset($this->data['Setting']['_id'])) 
+			echo $this->Form->input('_id',array('type' => 'hidden','default' => $this->data['Setting']['_id']));
+			
 		echo $this->Form->input('theme',array('type' => 'select', 'options' => $themes,'empty' => 'default', 'label' => 'Theme'));
 		
 		echo "<fieldset><legend>Workshop Themen</legend>";		

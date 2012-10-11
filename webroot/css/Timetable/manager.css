@@ -208,7 +208,7 @@ nav {
 }
 
 @in .manager-view {
-  #btn-speaker-add  {
+  .btn-add  {
 	 position: absolute;
 	 left: 630px;
 	 top: 15px;
