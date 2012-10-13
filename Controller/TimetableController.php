@@ -24,6 +24,18 @@ class TimetableController extends TimetableAppController {
 	public $uses = array();
 	
 	/**
+	 *  beforeFitler
+	 * 
+	 */
+	public function beforeFilter() {
+		parent::beforeFilter();
+		
+		$this->Auth->deny();
+		$this->Auth->allow(array('index'));
+				
+	}
+	
+	/**
 	 *
 	 * timetable dashboard
 	 */

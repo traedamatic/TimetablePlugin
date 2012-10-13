@@ -14,7 +14,18 @@ class SettingsController extends TimetableAppController {
 	 * @var string controller name
 	 *
 	 */
-	public $name = "Settings";	
+	public $name = "Settings";
+	
+	/**
+	 *  beforeFitler
+	 * 
+	 */
+	public function beforeFilter() {
+		parent::beforeFilter();
+		
+		$this->Auth->deny();		
+				
+	}
 	
 	/**
 	 *

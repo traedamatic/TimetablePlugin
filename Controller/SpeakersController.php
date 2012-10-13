@@ -23,6 +23,19 @@ class SpeakersController extends TimetableAppController {
 	public $components = array('Timetable.Uploadfile' => array(
 													'uploadPath' => 'files/speakers'
 													));
+	
+	/**
+	 *  beforeFitler
+	 * 
+	 */
+	public function beforeFilter() {
+		parent::beforeFilter();
+		
+		$this->Auth->deny();
+		$this->Auth->allow(array('index','view'));
+				
+	}
+	
 	/**
 	 *
 	 * standard index function

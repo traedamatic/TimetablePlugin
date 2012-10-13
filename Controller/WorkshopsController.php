@@ -18,11 +18,15 @@ class WorkshopsController extends TimetableAppController {
 	public $name = "Workshops";
 	
 	/**
-	 *
-	 * beforeFilter
+	 *  beforeFitler
+	 * 
 	 */
 	public function beforeFilter() {
-		parent::beforeFilter();			
+		parent::beforeFilter();
+		
+		$this->Auth->deny();
+		$this->Auth->allow(array('index','view'));
+				
 	}
 	
 	/**
