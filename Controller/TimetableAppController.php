@@ -54,7 +54,9 @@ class TimetableAppController extends AppController {
 		$Setting = ClassRegistry::init('Setting');
 		Configure::write('Timetable.Settings',$Setting->find('first'));
 		ClassRegistry::removeObject('Setting');
-										
+		
+		$this->Auth->deny();		
+		$this->Auth->allow(array('index','view'));				
 	}
 	
 	/**

@@ -30,8 +30,8 @@ class TimetableController extends TimetableAppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		
-		$this->Auth->deny();
-		$this->Auth->allow(array('index'));
+		//$this->Auth->deny();
+		//$this->Auth->allow(array('index'));
 				
 	}
 	

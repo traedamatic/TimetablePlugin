@@ -23,7 +23,7 @@ class SettingsController extends TimetableAppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		
-		$this->Auth->deny();		
+		//$this->Auth->deny();		
 				
 	}
 	

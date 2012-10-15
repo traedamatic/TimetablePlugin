@@ -174,12 +174,20 @@ nav {
 	 margin-bottom: 15px;
   }
   
+  .speakers-container div.checkbox {
+	 float: left;
+  }
+  
   form.vertical :any(input,textarea,select) {
 	 width: 450px;
 	 padding: 10px;
 	 font-size: 1.3em;
 	 color: #444;
 	 
+  }
+  
+  form.vertical input[type="checkbox"] {
+	 width: auto;
   }
   
   form.vertical select {

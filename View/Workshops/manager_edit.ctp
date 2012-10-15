@@ -1,4 +1,4 @@
-<div class="manager-view" id="workshop-edit">
+<div class="manager-view" id="workshop-edit">	
 	<h2>Workshop bearbeiten</h2>
 	<p>Hier können Sie einen Workshop bearbeiten:</p>
 	<div class="form">
@@ -12,7 +12,20 @@
 			echo $this->Form->input('description',array('type' => 'textarea', 'label' => "Beschreibung:"));
 			echo $this->Form->input('topic',array('type' => 'select', 'options' => $topics, 'label' => "Thema/Rubrik:")); //'options' => $topics
 			//echo $this->Form->input('color',array('type' => 'hidden', 'label' => "Farbe:"));
-			echo $this->Form->input('referent_id',array('type' => 'select', 'options' => $speakers, 'label' => "Referenten:", 'empty' => "Bitte wählen Sie einen Referenten aus"));
+			//echo $this->Form->input('referent_id',array('type' => 'select', 'options' => $speakers, 'label' => "Referenten:", 'empty' => "Bitte wählen Sie einen Referenten aus"));
+			$count=0;
+		?>
+		
+		<fieldset class="speakers-container clearfix">
+			<legend>Referenten</legend>
+		<?php
+			foreach($speakers as $id => $speakerName) {
+				echo $this->Form->input('Workshop.speakers.'.$id,array('type' => 'checkbox','label' => false,'after' => '<span>'.$speakerName.'</span>' ));
+				$count++;
+			}
+		?>
+		</fieldset>
+		<?php
 			echo $this->Form->input('location',array('type' => 'text', 'label' => "Wo?(Raum, Baum, Hörsaal, Haus mit Adresse, etc.)"));
 			
 			if(isset($this->data['Workshop']['event_id'])) {
@@ -23,7 +36,7 @@
 			
 			echo $this->Form->input('time',array('type' => 'time', 'label' => "Anfang:", 'dateFormat' => 'D-M-Y', 'timeFormat' => '24'));
 			echo $this->Form->input('duration',array('type' => 'text', 'default' => '1.5', 'label' => "Länge in Stunden:"));
-			echo $this->Form->input('active',array('type' => 'checkbox', 'label' => "Aktive: (sichtbar im Timetable)"));
+			echo $this->Form->input('active',array('type' => 'checkbox', 'label' => false,'after' => "Aktive: (sichtbar im Timetable)"));
 			echo $this->Form->button(__('Workshop speichern'),array('class' => 'red'));
 			echo $this->Form->end();
 		?>

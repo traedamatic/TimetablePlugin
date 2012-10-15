@@ -22,11 +22,7 @@ class WorkshopsController extends TimetableAppController {
 	 * 
 	 */
 	public function beforeFilter() {
-		parent::beforeFilter();
-		
-		$this->Auth->deny();
-		$this->Auth->allow(array('index','view'));
-				
+		parent::beforeFilter();			
 	}
 	
 	/**
@@ -75,9 +71,7 @@ class WorkshopsController extends TimetableAppController {
 		
 		$this->set('topics',$this->_formatTopics());
 		
-		if($this->request->is('post')) {
-			//debug($this->data);
-			//die;
+		if($this->request->is('post')) {			
 			if($this->Workshop->save($this->data)) {
 					$this->Session->setFlash(__("Workshop angelegt!"),'/flash/success');
 					$this->redirect(array('action' => 'index'));
@@ -117,18 +111,20 @@ class WorkshopsController extends TimetableAppController {
 	 *
 	 * manager edit
 	 *
-	 * add a new workshop
+	 * edit a workshop
 	 */
 	public function manager_edit($workshopId = null) {
 		if(is_null($workshopId)) $this->redirect(array('action' => 'index'));			
 		
 		$this->Workshop->id = $workshopId;
 		$workshop = $this->Workshop->read();
-	
+		
 		if(empty($workshop)) {
 			$this->Session->setFlash(__("Workshop wurde nicht gefunden!"),'/flash/error');
 			$this->redirect(array('action' => 'index'));			
 		}
+				
+		$workshop['Workshop']['speakers'] = array_combine($workshop['Workshop']['speakers'],array_fill(0,count($workshop['Workshop']['speakers']),'1'));				
 		
 		if($this->request->is('post')) {
 			$this->Workshop->set($this->data);
@@ -162,7 +158,7 @@ class WorkshopsController extends TimetableAppController {
 		
 		$speakers = $this->Speaker->find('count');			
 		
-		if($speakers > 0) $speakers = $this->Speaker->find('list');
+		if($speakers > 0) $speakers = $this->Speaker->find('list',array('order' => array('Speaker.created' => -1)));
 		if($speakers == 0) $speakers = array();
 		
 		$this->loadModel('Event');

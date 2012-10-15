@@ -62,8 +62,12 @@ class Workshop extends TimetableAppModel {
 		
 		$this->data['Workshop']['color'] =  $currentTopic['color'];
 		
-		$this->schema(true);
 		
+		$this->data['Workshop']['speakers'] = array_keys(array_filter($this->data['Workshop']['speakers'],function($speakerId){
+																return $speakerId != '0';
+															}));
+		
+		$this->schema(true);		
 		return true;
-	}
+	}	
 }

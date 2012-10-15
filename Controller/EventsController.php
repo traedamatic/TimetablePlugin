@@ -22,11 +22,7 @@ class EventsController extends TimetableAppController {
 	 * 
 	 */
 	public function beforeFilter() {
-		parent::beforeFilter();
-		
-		$this->Auth->deny();
-		$this->Auth->allow(array('index','view'));
-				
+		parent::beforeFilter();					
 	}
 	
 	/**
