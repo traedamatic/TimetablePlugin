@@ -42,7 +42,7 @@
 			
 			echo $this->Form->input('time',array('type' => 'time', 'label' => "Anfang:", 'dateFormat' => 'D-M-Y', 'timeFormat' => '24'));
 			echo $this->Form->input('duration',array('type' => 'text', 'default' => '1.5', 'label' => "Länge in Stunden:"));
-			echo $this->Form->input('active',array('type' => 'checkbox', 'label' => "Aktive: (sichtbar im Timetable)"));
+			echo $this->Form->input('active',array('type' => 'checkbox', 'label' => false,'after' => "Aktive: (sichtbar im Timetable)"));
 			echo $this->Form->button('Workshop anlegen',array('class' => 'red'));
 			echo $this->Form->end();
 		?>
