@@ -13,6 +13,16 @@ The Plugin helps you to set up a timeable for any kind of event with multipli wo
 - CakePHP 2.2.X
 - MongoDB (You need to install the PHP MongoDB Driver)
 
+## Install
+
+1) 
+
+Clone this repo like
+```
+git clone git://github.com/traedamatic/TimetablePlugin.git Timetable 
+```
+in your Plugin folder
+
 ## Controllers
 
 - TimetableAppController
