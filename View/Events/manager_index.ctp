@@ -2,7 +2,7 @@
 	<h1><?php echo __('Veranstaltungsübersicht'); ?></h1>
 	<p><?php echo __('Hier sind alle Veranstaltungen aufgezählt:'); ?></p>
 	<?php echo $this->Html->link(__('Neu anlegen'),array('action' => 'add'),array('class' => 'button green btn-add', 'id' => 'btn-event-add'));?> 
-	<table class="tight">
+	<table class="sortable">
 		<thead>
 			<?php echo $this->Html->tableHeaders(array('#',__('Name'), __('Beschreibung'),__('Anfang'),__('Ende'), __('Aktionen'))); ?>
 		</thead>

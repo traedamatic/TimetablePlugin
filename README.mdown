@@ -74,7 +74,16 @@ all Routes use the HTTP GET Method
 
 ## ChangeLog
 
-- 0.2 workshop bugfixin
-- 0.1 first release
+### 0.3 
+- new Model Topics. Now with description, color and name.
+- Workshop add now depends on the topics in the DB.
+- backend tables are now sortable.
+- other minor bugfixes.
+
+### 0.2
+- workshop bugfixin
+
+### 0.1
+- first release
 
 
