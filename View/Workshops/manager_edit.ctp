@@ -1,5 +1,6 @@
 <div class="manager-view" id="workshop-edit">	
 	<h2>Workshop bearbeiten</h2>
+	<?php debug($this->data); ?>
 	<p>Hier können Sie einen Workshop bearbeiten:</p>
 	<div class="form">
 		<?php
@@ -10,9 +11,7 @@
 		<div id="afterevent">
 		<?php
 			echo $this->Form->input('description',array('type' => 'textarea', 'label' => "Beschreibung:"));
-			echo $this->Form->input('topic',array('type' => 'select', 'options' => $topics, 'label' => "Thema/Rubrik:")); //'options' => $topics
-			//echo $this->Form->input('color',array('type' => 'hidden', 'label' => "Farbe:"));
-			//echo $this->Form->input('referent_id',array('type' => 'select', 'options' => $speakers, 'label' => "Referenten:", 'empty' => "Bitte wählen Sie einen Referenten aus"));
+			echo $this->Form->input('topic_id',array('type' => 'select', 'options' => $topics, 'label' => "Thema/Rubrik:")); //'options' => $topics			
 			$count=0;
 		?>
 		

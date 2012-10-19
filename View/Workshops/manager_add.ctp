@@ -18,7 +18,8 @@
 		<div id="afterevent" style="display: none;">
 		<?php
 			echo $this->Form->input('description',array('type' => 'textarea', 'label' => "Beschreibung:"));
-			echo $this->Form->input('topic',array('type' => 'select', 'options' => $topics, 'label' => "Thema/Rubrik:")); //'options' => $topics
+			//echo $this->Form->input('topic',array('type' => 'select', 'options' => $topics, 'label' => "Thema/Rubrik:")); //'options' => $topics
+			echo $this->Form->input('topic_id',array('type' => 'select', 'options' => $topics, 'label' => "Thema/Rubrik:")); //'options' => $topics
 			//echo $this->Form->input('color',array('type' => 'text', 'label' => "Farbe:"));
 			//echo $this->Form->input('referent_id',array('type' => 'select', 'options' => $speakers, 'label' => "Referenten:", 'empty' => "Bitte wählen Sie einen Referenten aus"));
 		?>		

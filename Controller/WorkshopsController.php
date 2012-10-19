@@ -69,7 +69,7 @@ class WorkshopsController extends TimetableAppController {
 	 */
 	public function manager_add() {
 		
-		$this->set('topics',$this->_formatTopics());
+		//this->set('topics',$this->_formatTopics());
 		
 		if($this->request->is('post')) {			
 			if($this->Workshop->save($this->data)) {
@@ -140,7 +140,7 @@ class WorkshopsController extends TimetableAppController {
 			}			
 		} else {		
 			
-			$this->set('topics',$this->_formatTopics());
+			//$this->set('topics',$this->_formatTopics());
 			
 			$this->_setEventsAndSpeakers();
 			
@@ -153,7 +153,7 @@ class WorkshopsController extends TimetableAppController {
 	 * gets events and speakers from the db and sets the view vars;
 	 */
 	private function _setEventsAndSpeakers() {
-		//workaround for mongodb bug. internal error it the collection is empty and you call ->find('list');
+		//workaround for mongodb datasource bug. internal error it the collection is empty and you call ->find('list');
 		$this->loadModel('Speaker');
 		
 		$speakers = $this->Speaker->find('count');			
@@ -168,7 +168,14 @@ class WorkshopsController extends TimetableAppController {
 		if($events > 0) $events = $this->Event->find('list');
 		if($events == 0) $events = array();
 		
-		$this->set(compact('speakers','events'));
+		$this->loadModel('Topic');
+		$topics = $this->Topic->find('count');		
+		
+		if($topics > 0) $topics = array_merge(array('-1' => 'Kein Thema'),$this->Topic->find('list'));
+		if($topics == 0) $topics = array('-1' => 'Kein Thema');
+		
+		
+		$this->set(compact('speakers','events','topics'));
 	}
 	
 	/**

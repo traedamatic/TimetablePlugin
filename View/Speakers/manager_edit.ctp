@@ -18,9 +18,17 @@
 			
 			echo $this->Form->input('avatar',array('type' => 'file', 'label' => __("Neues Bild:"))); //'options' => $topics
 			echo "<p>".__('Achtung! Das alte Bild überschrieben.')."</p>";
-			echo $this->Form->input('position',array('type' => 'text', 'label' => __("Position in der Liste:")));
+		?>
+		<fieldset>
+			<legend><?php echo __('Einstellungen für die Referentenliste:'); ?></legend>
+			<?php
+				echo $this->Form->input('inlist',array('type' => 'checkbox', 'label' => false,'after' => __("Sichtbar in der Referentenliste:")));
+				echo $this->Form->input('position',array('type' => 'text', 'label' => __("Position in der Liste:")));
+			?>
+		</fieldset>
+		<?php
 			echo $this->Form->button(__('Referent speichern'),array('class' => 'red'));
 			echo $this->Form->end();
-		?>
+		?>		
 	</div>
 </div>

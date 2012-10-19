@@ -55,12 +55,12 @@ class Workshop extends TimetableAppModel {
 	 * before save
 	 */
 	public function beforeSave() {		
-		$topicName = $this->data['Workshop']['topic'];
-		$currentTopic = current(array_filter(Configure::read('Timetable.Settings.Setting.topic'),function($topic) use ($topicName) {
-			return $topic['name'] === $topicName;
-		}));
-		
-		$this->data['Workshop']['color'] =  $currentTopic['color'];
+		//$topicName = $this->data['Workshop']['topic'];
+		//$currentTopic = current(array_filter(Configure::read('Timetable.Settings.Setting.topic'),function($topic) use ($topicName) {
+		//	return $topic['name'] === $topicName;
+		//}));
+		//
+		//$this->data['Workshop']['color'] =  $currentTopic['color'];
 		
 		
 		$this->data['Workshop']['speakers'] = array_keys(array_filter($this->data['Workshop']['speakers'],function($speakerId){

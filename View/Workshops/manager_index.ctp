@@ -2,21 +2,22 @@
 	<h1><?php echo __('Workshopübersicht'); ?></h1>
 	<p><?php echo __('Hier sind alle Workshops aufgezählt:') ?></p>
 	<?php echo $this->Html->link(__('Neu anlegen'),array('action' => 'add'),array('class' => 'button green btn-add', 'id' => 'btn-speaker-add'));?> 
-	<table class="tight">
+	<table class="sortable">
 		<thead>
-			<?php echo $this->Html->tableHeaders(array(__('Id'), __('Name'), __('Beschreibung'),__('Ort'),__('Tag'),__('Zeit'),__('Länge'), __('Aktionen'))); ?>
+			<?php echo $this->Html->tableHeaders(array('#',__('Name'), __('Beschreibung'),__('Ort'),__('Tag'),__('Zeit'),__('Länge'), __('Aktionen'))); ?>
 		</thead>
 		<tbody>		
 			<?php
+				$count = 0;
 				foreach($workshops as $workshop):
-			
+					$count++;					
 			
 					echo $this->Html->tableCells(
 												array(
 													array(
-															$workshop['Workshop']['_id'],
-															$workshop['Workshop']['name'],
-															$workshop['Workshop']['description'],
+															$count,
+															array($workshop['Workshop']['name'],array('class' => $workshop['Workshop']['_id'])),
+															$this->Text->truncate($workshop['Workshop']['description'],40),
 															$workshop['Workshop']['location'],
 															$workshop['Workshop']['day'],
 															implode(':',$workshop['Workshop']['time']),															

@@ -48,6 +48,12 @@
 				</ul>
 			</div>
 			<div class="menu-item">
+				<?php echo $this->Html->link(_('Themen'),array('controller' => 'topics', 'action' => 'index')); ?>
+					<ul class="submenu">
+					<li><?php echo $this->Html->link(_('Anlegen'),array('controller' => 'topics', 'action' => 'add'),array('escape' => false)); ?></li>
+				</ul>
+			</div>
+			<div class="menu-item">
 				<?php echo $this->Html->link(_('Einstellungen'),array('controller' => 'settings', 'action' => 'index')); ?>					
 			</div>
 		</nav>
@@ -70,6 +76,8 @@
 	<?php
 		
 		echo $this->Html->script('Timetable.manager');
+		echo $this->Html->script('Timetable.libs/prettify');
+		echo $this->Html->script('Timetable.libs/kickstart');		
 			
 		echo $this->fetch('script');
 		

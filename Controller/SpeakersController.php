@@ -70,7 +70,7 @@ class SpeakersController extends TimetableAppController {
 	 * manager index function overview over all speakers
 	 */
 	public function manager_index() {
-		$speakers = $this->Speaker->find('all');
+		$speakers = $this->Speaker->find('all',array('order' => array('Speaker.position' => 'ASC','Speaker.modified' => 'ASC')));
 		$this->set(compact('speakers'));
 	}
 	
@@ -102,7 +102,9 @@ class SpeakersController extends TimetableAppController {
 					$this->Session->setFlash(__("Referent konnte nicht angelegt werden!"),'/flash/success');
 				}
 			}
-		}		
+		} else {
+			$this->set('countSpeakers', $this->Speaker->find('count'));
+		}
 	}
 	
 	/**

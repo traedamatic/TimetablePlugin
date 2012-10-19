@@ -11,7 +11,15 @@
 			echo $this->Form->input('twitter',array('type' => 'text', 'label' => __("Twitter:")));
 			echo $this->Form->input('facebook',array('type' => 'text', 'label' => __("Facebook-Name")));
 			echo $this->Form->input('avatar',array('type' => 'file', 'label' => __("Bild:"))); //'options' => $topics
-			echo $this->Form->input('position',array('type' => 'text','default' => $count, 'label' => __("Position in der Liste:")));
+			?>
+			<fieldset>
+				<legend><?php echo __('Einstellungen für die Referentenliste:'); ?></legend>
+				<?php
+					echo $this->Form->input('inlist',array('type' => 'checkbox', 'label' => false,'after' => __("Sichtbar in der Referentenliste:"),'default' => 1));
+					echo $this->Form->input('position',array('type' => 'text', 'label' => __("Position in der Liste:"), 'default' => $countSpeakers+1));
+				?>
+			</fieldset>
+			<?php
 			echo $this->Form->button(__('Referent anlegen'),array('class' => 'red'));
 			echo $this->Form->end();
 		?>
