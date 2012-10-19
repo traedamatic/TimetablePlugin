@@ -71,12 +71,13 @@
 	<?php echo $this->element('sql_dump'); ?>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>	
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
 	
 	<?php
 		
 		echo $this->Html->script('Timetable.manager');
-		echo $this->Html->script('Timetable.libs/prettify');
+	//	echo $this->Html->script('Timetable.libs/prettify');
 		echo $this->Html->script('Timetable.libs/kickstart');		
 			
 		echo $this->fetch('script');
