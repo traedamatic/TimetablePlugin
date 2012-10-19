@@ -1,6 +1,6 @@
 <div class="manager-view" id="workshop-edit">	
 	<h2>Workshop bearbeiten</h2>
-	<?php debug($this->data); ?>
+	<?php //debug($this->data); ?>
 	<p>Hier können Sie einen Workshop bearbeiten:</p>
 	<div class="form">
 		<?php
