@@ -27,3 +27,6 @@ Router::connect('/workshops/:id', array('controller' => 'workshops', 'action' =>
 
 Router::connect('/speakers', array('controller' => 'speakers', 'action' => 'index', '[method]' => 'GET', 'ext' => 'json', 'plugin' => 'timetable', 'manager' => false),array('pass' => array('id'),'id' => '[0-9a-zA-z]+'));
 Router::connect('/speakers/:id', array('controller' => 'speakers', 'action' => 'view', '[method]' => 'GET', 'ext' => 'json', 'plugin' => 'timetable', 'manager' => false),array('pass' => array('id'),'id' => '[0-9a-zA-z]+'));
+
+Router::connect('/topics', array('controller' => 'topics', 'action' => 'index', '[method]' => 'GET', 'ext' => 'json', 'plugin' => 'timetable', 'manager' => false),array('pass' => array('id'),'id' => '[0-9a-zA-z]+'));
+Router::connect('/topics/:id', array('controller' => 'topics', 'action' => 'view', '[method]' => 'GET', 'ext' => 'json', 'plugin' => 'timetable', 'manager' => false),array('pass' => array('id'),'id' => '[0-9a-zA-z]+'));

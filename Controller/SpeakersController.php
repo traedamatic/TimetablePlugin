@@ -42,7 +42,7 @@ class SpeakersController extends TimetableAppController {
 	 * only ajax right now.
 	 */	
 	public function index() {				
-		$this->set('speakers',$this->Speaker->find('all'));
+		$this->set('speakers',$this->Speaker->find('all',array('order' => array('Speaker.position' => 'ASC'))));		
 	}
 	
 	/**
@@ -70,7 +70,7 @@ class SpeakersController extends TimetableAppController {
 	 * manager index function overview over all speakers
 	 */
 	public function manager_index() {
-		$speakers = $this->Speaker->find('all',array('order' => array('Speaker.position' => 'ASC','Speaker.modified' => 'ASC')));
+		$speakers = $this->Speaker->find('all',array('order' => array('Speaker.position' => 'ASC')));
 		$this->set(compact('speakers'));
 	}
 	
@@ -195,7 +195,8 @@ class SpeakersController extends TimetableAppController {
 	}
 	
 	/**
-	 * nice sorting funktion for the position of the speakers in any list
+	 * nice sorting function for the position of the speakers in any list
+	 * but have db action :(
 	 */
 	public function manager_sorting() {
 		if($this->request->is('post')) {
@@ -203,8 +204,7 @@ class SpeakersController extends TimetableAppController {
 			$result = array();
 			foreach ($this->data['positions'] as $position => $speaker) {
 				$this->Speaker->id = $speaker['id'];
-				if(!$this->Speaker->saveField('position', $position)) {
-					//throw new OverflowException('Ups Something Wrong on id '. $speaker['id']);
+				if(!$this->Speaker->saveField('position', $position)) {					
 					$result['result'] = 'Error 500';
 					$result['msg'] = "Error On id " . $speaker['id'];
 					break;
