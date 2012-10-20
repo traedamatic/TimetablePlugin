@@ -45,6 +45,7 @@
 				<?php echo $this->Html->link(_('Referenten'),array('controller' => 'speakers', 'action' => 'index')); ?>
 					<ul class="submenu">
 					<li><?php echo $this->Html->link(_('Anlegen'),array('controller' => 'speakers', 'action' => 'add'),array('escape' => false)); ?></li>
+					<li><?php echo $this->Html->link(_('Referentenliste'),array('controller' => 'speakers', 'action' => 'sorting'),array('escape' => false)); ?></li>
 				</ul>
 			</div>
 			<div class="menu-item">
@@ -57,7 +58,7 @@
 				<?php echo $this->Html->link(_('Einstellungen'),array('controller' => 'settings', 'action' => 'index')); ?>					
 			</div>
 		</nav>
-		<div id="meat" role="main">
+		<div id="meat" class="clearfix" role="main">
 
 			<?php echo $this->Session->flash(); ?>
 
@@ -78,6 +79,7 @@
 		
 		echo $this->Html->script('Timetable.manager');
 	//	echo $this->Html->script('Timetable.libs/prettify');
+		echo $this->Html->script('Timetable.libs/jquery.nestable');
 		echo $this->Html->script('Timetable.libs/kickstart');		
 			
 		echo $this->fetch('script');

@@ -1,4 +1,5 @@
 <div class="manager-view" id="workshop-edit">
+	<!-- <?php debug($this->data); ?>-->
 	<h2><?php echo __('Referenten bearbeiten'); ?></h2>
 	<p><?php echo __('Hier haben Sie die möglichkeit einen Referenten zu bearbeiten:'); ?></p>
 	<div class="form">
@@ -23,7 +24,7 @@
 			<legend><?php echo __('Einstellungen für die Referentenliste:'); ?></legend>
 			<?php
 				echo $this->Form->input('inlist',array('type' => 'checkbox', 'label' => false,'after' => __("Sichtbar in der Referentenliste:")));
-				echo $this->Form->input('position',array('type' => 'text', 'label' => __("Position in der Liste:")));
+				echo $this->Form->input('position',array('type' => 'hidden', 'label' => __("Position in der Liste:")));
 			?>
 		</fieldset>
 		<?php

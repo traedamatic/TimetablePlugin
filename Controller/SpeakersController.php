@@ -194,5 +194,33 @@ class SpeakersController extends TimetableAppController {
 		$this->set(compact('speaker'));
 	}
 	
+	/**
+	 * nice sorting funktion for the position of the speakers in any list
+	 */
+	public function manager_sorting() {
+		if($this->request->is('post')) {
+				
+			$result = array();
+			foreach ($this->data['positions'] as $position => $speaker) {
+				$this->Speaker->id = $speaker['id'];
+				if(!$this->Speaker->saveField('position', $position)) {
+					//throw new OverflowException('Ups Something Wrong on id '. $speaker['id']);
+					$result['result'] = 'Error 500';
+					$result['msg'] = "Error On id " . $speaker['id'];
+					break;
+				} else {
+					$result[] = "Speaker mit Id " .  $speaker['id'] . "neue position $position";
+					$result['result'] = 'ok';
+				}
+			}
+			
+			$this->set(array('response' => $result,
+								  '_serialize' => array('response')));
+				
+		} else {
+			$this->set('speakers',$this->Speaker->find('all',array('order' => array('Speaker.position' => 'ASC'))));	
+		}		
+	}
+	
 }
 	

@@ -16,7 +16,7 @@
 				<legend><?php echo __('Einstellungen für die Referentenliste:'); ?></legend>
 				<?php
 					echo $this->Form->input('inlist',array('type' => 'checkbox', 'label' => false,'after' => __("Sichtbar in der Referentenliste:"),'default' => 1));
-					echo $this->Form->input('position',array('type' => 'text', 'label' => __("Position in der Liste:"), 'default' => $countSpeakers+1));
+					echo $this->Form->input('position',array('type' => 'hidden', 'label' => __("Position in der Liste:"), 'default' => $countSpeakers+1));
 				?>
 			</fieldset>
 			<?php
