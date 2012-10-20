@@ -63,7 +63,7 @@ class Workshop extends TimetableAppModel {
 		//$this->data['Workshop']['color'] =  $currentTopic['color'];
 		
 		//cast the position to int
-		$this->data['Workshop']['position'] = intval($this->data['Workshop']['position']);
+		$this->data['Workshop']['position'] = (int)($this->data['Workshop']['position']);
 		
 		$this->data['Workshop']['speakers'] = array_keys(array_filter($this->data['Workshop']['speakers'],function($speakerId){
 																return $speakerId != '0';
