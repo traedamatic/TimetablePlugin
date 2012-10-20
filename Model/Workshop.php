@@ -54,7 +54,7 @@ class Workshop extends TimetableAppModel {
 	 *
 	 * before save
 	 */
-	public function beforeSave() {		
+	public function beforeSave($options = array()) {		
 		//$topicName = $this->data['Workshop']['topic'];
 		//$currentTopic = current(array_filter(Configure::read('Timetable.Settings.Setting.topic'),function($topic) use ($topicName) {
 		//	return $topic['name'] === $topicName;
