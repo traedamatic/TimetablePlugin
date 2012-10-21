@@ -113,7 +113,7 @@ class UploadfileComponent extends Component {
 		if(is_null($source) || is_null($ext)) {
 			
 		}
-		
+		debug($ext);
 		$sourceImage = false;
 		
 		$desired_width = $this->settings['desired_width'];
@@ -132,7 +132,10 @@ class UploadfileComponent extends Component {
 				break;
 		}
 		
+		debug($sourceImage);
 		if($sourceImage === false) return false;
+		
+		
 		
 		 /* read the source image */		
 		$width = imagesx($sourceImage);
@@ -160,7 +163,7 @@ class UploadfileComponent extends Component {
 			default:
 				break;
 		}
-		
+		debug($result);
 		/* create the physical thumbnail image to its destination */
 		return $result;
 		
