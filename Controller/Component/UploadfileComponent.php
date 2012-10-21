@@ -85,7 +85,8 @@ class UploadfileComponent extends Component {
 			$this->lastFileUploaded = $fileNameMd5WithExt;
 			
 			$mimeType = mime_content_type($uploadPath);
-			
+			debug($mimeType);
+			debug($uploadPathThumb);
 			if(key_exists($mimeType,$this->supportedFileExtensions)) {
 				if($this->makeThumbnail($uploadPath,$uploadPathThumb,$this->supportedFileExtensions[$mimeType])) {
 					return true;

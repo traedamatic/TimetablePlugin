@@ -131,7 +131,7 @@ class SpeakersController extends TimetableAppController {
 				if($speaker['Speaker']['avatar'] != false) {
 					unlink(WWW_ROOT.DS.'files'.DS.'speakers'.DS.$speaker['Speaker']['avatar']);
 				}
-				
+				debug($this->data);
 				if($this->Uploadfile->uploadImageWithThumb($this->data['Speaker']['avatar'])) {
 					$this->request->data['Speaker']['avatar'] = $this->Uploadfile->lastFileUploaded;
 				} else {
@@ -145,7 +145,7 @@ class SpeakersController extends TimetableAppController {
 				}
 			}
 				
-			
+			die;
 			$this->Speaker->set($this->data);
 			if($this->Speaker->save($this->data)) {
 					$this->Session->setFlash(__("Referent angelegt!"),'/flash/success');
