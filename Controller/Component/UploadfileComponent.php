@@ -110,19 +110,16 @@ class UploadfileComponent extends Component {
 	 *
 	 */
 	private function makeThumbnail($source = null,$dest = null , $ext = null){
-		if(is_null($source) || is_null($ext)) {
-			
-			debug("is source null");
+		if(is_null($source) || is_null($ext)) {			
+			return false;
 		}
-		debug($source);
-		debug($ext);
+		
 		$sourceImage = false;
 		
 		$desired_width = $this->settings['desired_width'];
 		
 		switch($ext) {
-			case "jpeg":
-				debug("in Jpeg");	
+			case "jpeg":				
 				$sourceImage = imagecreatefromjpeg($source);
 				break;
 			case "gif":
@@ -134,11 +131,8 @@ class UploadfileComponent extends Component {
 			default:
 				break;
 		}
-		
-		debug($sourceImage);
+				
 		if($sourceImage === false) return false;
-		
-		
 		
 		 /* read the source image */		
 		$width = imagesx($sourceImage);
@@ -165,8 +159,7 @@ class UploadfileComponent extends Component {
 				break;
 			default:
 				break;
-		}
-		debug($result);
+		}		
 		/* create the physical thumbnail image to its destination */
 		return $result;
 		
