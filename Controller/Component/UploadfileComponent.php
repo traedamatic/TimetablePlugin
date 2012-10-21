@@ -112,7 +112,9 @@ class UploadfileComponent extends Component {
 	private function makeThumbnail($source = null,$dest = null , $ext = null){
 		if(is_null($source) || is_null($ext)) {
 			
+			debug("is source null");
 		}
+		debug($source);
 		debug($ext);
 		$sourceImage = false;
 		
@@ -120,6 +122,7 @@ class UploadfileComponent extends Component {
 		
 		switch($ext) {
 			case "jpeg":
+				debug("in Jpeg");	
 				$sourceImage = imagecreatefromjpeg($source);
 				break;
 			case "gif":
