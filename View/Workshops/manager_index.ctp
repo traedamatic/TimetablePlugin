@@ -33,3 +33,5 @@
 		</tbody>
 	</table>
 </div>
+
+<?php debug($countActiveWorkshops); ?>
