@@ -32,8 +32,8 @@ class WorkshopsController extends TimetableAppController {
 	 */	
 	public function index() {
 		//
-		//$this->set('workshops',$this->Workshop->find('all'));
-		$this->set('workshops',$this->Workshop->find('all',array('conditions' => array('Workshop.active' => '1'))));
+		$this->set('workshops',$this->Workshop->find('all'));
+		//$this->set('workshops',$this->Workshop->find('all',array('conditions' => array('Workshop.active' => '1'))));
 	}
 	
 	/**
