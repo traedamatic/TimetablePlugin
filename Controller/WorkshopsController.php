@@ -34,7 +34,7 @@ class WorkshopsController extends TimetableAppController {
 		//
 		$this->set('workshops',$this->Workshop->find('all'));
 		
-		$this->set('countActiveWorkshops',$this->Workshop->find('count',array('conditions' => array('Workshop.active' => '1'))));
+		$this->set('countActiveWorkshops',$this->Workshop->find('count',array('conditions' => array('Workshop.active' => 1))));
 	}
 	
 	/**
