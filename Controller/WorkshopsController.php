@@ -32,9 +32,7 @@ class WorkshopsController extends TimetableAppController {
 	 */	
 	public function index() {
 		//
-		$this->set('workshops',$this->Workshop->find('all'));
-		
-		$this->set('countActiveWorkshops',$this->Workshop->find('count',array('conditions' => array('Workshop.active' => 1))));
+		$this->set('workshops',$this->Workshop->find('all'));			
 	}
 	
 	/**
@@ -60,7 +58,9 @@ class WorkshopsController extends TimetableAppController {
 	 */
 	public function manager_index() {
 		$workshops = $this->Workshop->find('all');
-		$this->set(compact('workshops'));		
+		$this->set(compact('workshops'));
+		
+		$this->set('countActiveWorkshops',$this->Workshop->find('count',array('conditions' => array('Workshop.active' => '1'))));
 	}
 	
 	
