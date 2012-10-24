@@ -35,5 +35,6 @@ class Speaker extends TimetableAppModel {
 	public function beforeSave($options = array()) {
 		//cast the position to int
 		$this->data['Speaker']['position'] = (int)($this->data['Speaker']['position']);
+		return true;
 	}
 }
